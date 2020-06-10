@@ -24,7 +24,7 @@ SECRET_KEY = 'n@csqm$tq$78d(iqsrupd%5-15#g^jpqo(ou=*)e=b-n06g1%4'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['localhost', '127.0.0.1', '[::1]', '121.165.118.243', '.j2kbweb.coo.kr/', ]
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', '[::1]', '121.165.118.243', '.j2kbweb.kro.kr', ]
 
 # Application definition
 
@@ -119,3 +119,5 @@ STATICFILES_DIR = (
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 X_FRAME_OPTIONS = 'xframe_options_sameorigin'
+
+LOGIN_REDIRECT_URL = '/'

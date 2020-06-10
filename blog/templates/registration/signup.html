@@ -1,0 +1,15 @@
+{% extends "blog/base.html" %}
+
+{% block content %}
+    <h1>Sign Up</h1>
+    {% if error %}
+        <h3 style="color:red">{{error}}</h3>
+    {% endif %}
+        <form action="" method="POST">
+        {% csrf_token %}
+            <table>
+            {{ f.as_table }}
+            </table>
+            <input type="submit" value="회원가입">
+        </form>
+{% endblock %}
