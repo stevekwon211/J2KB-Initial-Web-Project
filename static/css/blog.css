@@ -14,8 +14,8 @@
     margin-left: 40px;
 }
 
-h1, h2, h3, h4 {
-    font-family: 'NanumGothic', cursive;
+.font h1, h2, h3, h4 {
+    font-family: 'Arial', cursive;
 }
 
 .date {
