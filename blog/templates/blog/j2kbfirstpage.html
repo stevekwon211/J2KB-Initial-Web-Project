@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+{% load static %}
+
+<html lang="en" dir="ltr">
+  <head>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script>
+    $(document).ready(function(){
+      // Add smooth scrolling to all links
+    $("a").on('click', function(event) {
+
+      // Make sure this.hash has a value before overriding default behavior
+    if (this.hash !== "") {
+        // Prevent default anchor click behavior
+      event.preventDefault();
+
+        // Store hash
+        var hash = this.hash;
+
+        // Using jQuery's animate() method to add smooth page scroll
+        // The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area
+        $('html, body').animate({
+            scrollTop: $(hash).offset().top
+            }, 800, function(){
+
+              // Add hash (#) to URL when done scrolling (default click behavior)
+              window.location.hash = hash;
+          });
+        } // End if
+      });
+    });
+    </script>
+    <script src="login_SignIn.js"></script>
+    <style>
+    h1{
+    color: white;
+    font-size: 50px;
+    }
+    .bg{
+      background-color:#00ffcc;
+    }
+    .center {
+        background-color:#00ffcc;
+        text-align: center;
+        height: 100vh;
+        line-height: 100vh;
+      }
+    .round-button{
+      width: 220px;
+      height: 220px;
+      text-decoration: none;
+      display: inline-block;
+      outline: none;
+      cursor: pointer;
+      border-style: none;
+      color: white;
+      background-color: white;
+      border-radius: 100%;
+      overflow: none;
+      text-align: center;
+      box-shadow: 0 5px 5px 5px rgba(0,0,0,0.25);
+      font-size: 30px;
+      color: black;
+      font-family: "Source Sans Pro", "sans-serif", cursive;
+    }
+    .round-button:active{
+      background-color: #FFFFFF;
+    }
+    .button1{
+      background-color: transparent;
+      font-family: "Source Sans Pro", "sans-serif", cursive;
+      border: none;
+      font-size: 50px;
+      color: white;
+      outline:none;
+    }
+    .button2{
+      background-color: transparent;
+      border: none;
+      font-size: 50px;
+      color: white;
+      font-family: "Source Sans Pro", "sans-serif", cursive;
+        outline:none;
+    }
+    a{
+    text-decoration: none;
+    color: black;
+    }
+      </style>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body class="bg">
+  <font face="Source Sans Pro" , "Source Sans Pro", cursive>
+  <div class="center">
+    <div>
+        <button class="round-button"><a href="#down">J2KB</a></button>
+    </div>
+      <div id="down">
+        <h1><input type="button" value="Sign in" onclick="location.href = '{% url 'signin' %}' " class="button1">
+          /<input type="button" value="Sign up" onclick="location.href = '{% url 'signup' %}' " class="button2"> </h1>
+    </div>
+  </div>
+  </body>
+</html>

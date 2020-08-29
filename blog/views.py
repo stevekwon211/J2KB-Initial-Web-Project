@@ -12,10 +12,41 @@ from django.contrib.auth import logout
 
 # Create your views here.
 
+def firstpage(request):
+    return render(request, 'blog/j2kbfirstpage.html')
 
-def post_list(request):
+
+def homepage(request):
+    return render(request, 'blog/homepage.html')
+
+
+def about_us(request):
+    return render(request, 'blog/j2kbaboutus.html')
+
+
+def contact_us(request):
+    return render(request, 'blog/j2kbcontactus.html')
+
+
+def photopage(request):
+    return render(request, 'blog/j2kbphotopage.html')
+
+
+def memo(request):
+    return render(request, 'blog/j2kbmemopage.html')
+
+
+def todolist(request):
+    return render(request, 'blog/j2kbtodolistpage.html')
+
+
+def generalforum(request):
+    return render(request, 'blog/j2kbgeneralforum.html')
+
+
+''' def post_list(request):
     posts = Post.objects.filter(published_date__lte=timezone.now()).order_by('published_date')
-    return render(request, 'blog/post_list.html', {'posts': posts})
+    return render(request, 'blog/post_list.html', {'posts': posts}) '''
 
 
 def post_detail(request, pk):
@@ -87,7 +118,7 @@ def signup(request):
                 new_user.first_name = form.cleaned_data['first_name']
                 new_user.save()
 
-                return redirect('post_list')
+                return redirect('homepage')
 
             else:
                 return render(request, 'registration/signup.html', {'f': form,
@@ -108,11 +139,11 @@ def signin(request):
 
         if u:
             login(request, user=u)
-            return HttpResponseRedirect(reverse('post_list'))
+            return HttpResponseRedirect(reverse('homepage'))
         else:
             return render(request, 'registration/signin.html', {'f': form, 'error': '아이디나 비밀번호가 일치하지 않습니다.'})
 
 
 def signout(request):
     logout(request)
-    return HttpResponseRedirect(reverse('post_list'))
+    return HttpResponseRedirect(reverse('first_page'))
