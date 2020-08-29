@@ -1,0 +1,51 @@
+{% extends 'blog/base.html' %}
+{% load static %}
+
+{% block content %}
+<div id="wrapper">
+	<div id="page" class="container">
+		<div id="content">
+			<div class="title">
+				<h2>What is J2KB?</h2>
+				<span class="byline"><strong>J</strong>ourney <strong>To(2)</strong> <strong>K</strong>now <strong>B</strong>eautiful Coding</span> </div>
+			<p><strong>J2KB</strong> is a group made in 2020-04-18. There are 4 members, <strong>Taeklim Kim, Junhyung Jeon, Hyunjun Paik and Leader Hyukil Kwon</strong>.
+				This group is created to find what suits each aptitude in various fields within computer science. Have fun :) </p>
+			<div id="two-column">
+				<div id="tbox1">
+					<div class="title">
+						<h2>Moments Together</h2>
+					</div>
+					<a href="#" class="image image-full"><img src="{% static 'images/pic01.jpg' %}" alt="" /></a>
+					<p>This photo was taken from Gangneung Haean-ro beach on 2020/06/26.</p>
+					<a href="{% url 'photopage' %}" class="button">Read More</a> </div>
+				<div id="tbox2">
+					<div class="title">
+						<h2>General Forum</h2>
+					</div>
+					<p>글을 자유롭게 쓸 수 있는 자유게시판</p>
+					<ul class="style2">
+						<li><a href="#">글1</a></li>
+						<li><a href="#">글2</a></li>
+						<li><a href="#">글3</a></li>
+						<li><a href="#">글4</a></li>
+						<li><a href="#">글5</a></li>
+					</ul>
+					<a href="{% url 'generalforum' %}" class="button">Read More</a> </div>
+			</div>
+		</div>
+<div id="sidebar">
+	<div class="box1">
+		<div class="title">
+			<h2>Site Features</h2>
+			</div>
+				<ul class="style2">
+					<li><a href="{% url 'memo' %}">Memo</a></li>
+					<li><a href="{% url 'todolist' %}">To-Do-List</a></li>
+					<li><a href="{% url 'photopage' %}">Photos</a></li>
+					<li><a href="{% url 'generalforum' %}">General Forum</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>
+{% endblock %}
