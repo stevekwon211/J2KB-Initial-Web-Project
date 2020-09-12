@@ -1,4 +1,9 @@
-
+@font-face {
+font-family: 'InfinitySans-RegularA1';
+src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@2.1/InfinitySans-RegularA1.woff') format('woff');
+font-weight: normal;
+font-style: normal;
+}
 html, body
 {
 	height: 100%;
@@ -9,7 +14,7 @@ body
 	margin: 0px;
 	padding: 0px;
 	background: #FFFFFF url(images/bg01.png) repeat;
-	font-family: 'Source Sans Pro', sans-serif;
+	font-family: 'InfinitySans-RegularA1';
 	font-size: 12pt;
 	font-weight: 300;
 	color: #363636;
