@@ -313,8 +313,8 @@ hr
 
 	#portfolio-wrapper
 	{
-		background: #2C6503;
-		padding: 6em 0em;
+		background: rgba(39, 37, 50, 0.7);
+		padding: 3em 0em;
 	}
 
 	#portfolio
@@ -340,6 +340,7 @@ hr
 	#column4
 	{
 		width: 282px;
+		color: rgba(182, 255, 0, 1);
 	}
 
 	#column1,
@@ -366,7 +367,7 @@ hr
 	#copyright
 	{
 		overflow: hidden;
-		padding: 5em 0em;
+		padding: 3em 0em;
 	}
 
 	#copyright p
