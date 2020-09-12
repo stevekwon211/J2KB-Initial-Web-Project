@@ -32,18 +32,26 @@
     </script>
     <script src="login_SignIn.js"></script>
     <style>
+      @font-face {
+      font-family: 'InfinitySans-RegularA1';
+      src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@2.1/InfinitySans-RegularA1.woff') format('woff');
+      font-weight: normal;
+      font-style: normal;
+    }
     h1{
     color: white;
     font-size: 50px;
     }
-    .bg{
-      background-color:#00ffcc;
-    }
     .center {
-        background-color:#00ffcc;
+        background-image:url('static/images/sky.jpg');
+        background-repeat: no-repeat;
+        background-size: cover;
         text-align: center;
         height: 100vh;
         line-height: 100vh;
+      }
+      #down{
+        background-image:url('static/images/ground.jpg');
       }
     .round-button{
       width: 220px;
@@ -61,14 +69,14 @@
       box-shadow: 0 5px 5px 5px rgba(0,0,0,0.25);
       font-size: 30px;
       color: black;
-      font-family: "Source Sans Pro", "sans-serif", cursive;
+      font-family: 'InfinitySans-RegularA1';
     }
     .round-button:active{
       background-color: #FFFFFF;
     }
     .button1{
       background-color: transparent;
-      font-family: "Source Sans Pro", "sans-serif", cursive;
+      font-family: 'InfinitySans-RegularA1';
       border: none;
       font-size: 50px;
       color: white;
@@ -79,7 +87,7 @@
       border: none;
       font-size: 50px;
       color: white;
-      font-family: "Source Sans Pro", "sans-serif", cursive;
+      font-family: 'InfinitySans-RegularA1';
         outline:none;
     }
     a{
@@ -91,14 +99,14 @@
     <title></title>
   </head>
   <body class="bg">
-  <font face="Source Sans Pro" , "Source Sans Pro", cursive>
+  <font face= "InfinitySans-RegularA1">
   <div class="center">
     <div>
         <button class="round-button"><a href="#down">J2KB</a></button>
     </div>
       <div id="down">
-        <h1><input type="button" value="Sign in" onclick="location.href = '{% url 'signin' %}' " class="button1">
-          /<input type="button" value="Sign up" onclick="location.href = '{% url 'signup' %}' " class="button2"> </h1>
+        <input type="button" value="Sign in /" onclick="location.href = '{% url 'signin' %}' " class="button1">
+       <input type="button" value="Sign up" onclick="location.href = '{% url 'signup' %}' " class="button2">
     </div>
   </div>
   </body>
