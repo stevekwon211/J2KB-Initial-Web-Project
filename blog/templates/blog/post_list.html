@@ -1,15 +1,55 @@
 {% extends 'blog/base.html' %}
 
 {% block content %}
-    {% for post in posts %}
-        <div class="post">
-            <div class="date">
-                {{ post.published_date }}
+
+<div id="wrapper">
+	<div id="page" class="container">
+		<div id="content">
+			<div class="title">
+				<h2>General Forum</h2>
+				<span class="byline"></div>
+			<p>
+            <a class="btn btn-default" href="{% url 'post_new' %}">New Post</a>
+                {% for post in posts %}
+                <div class="post">
+                    <div class="date">
+                        {{ post.published_date }}
+                    </div>
+                    <h1>
+                        <a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a>
+                    </h1>
+                </div>
+                <br>
+                {% endfor %}
+        </p>
+			<div id="two-column">
+				<div id="tbox1">
+					<div class="title">
+						<h2></h2>
+					</div>
             </div>
-            <h1>
-                <a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a>
-            </h1>
-            <p>{{ post.text|linebreaksbr }}</p>
-        </div>
-    {% endfor %}
+				<div id="tbox2">
+					<div class="title">
+						<h2></h2>
+					</div>
+					   </div>
+			</div>
+		</div>
+		<div id="sidebar">
+			<div class="box1">
+				<div class="title">
+					<h2>Site Features</h2>
+				</div>
+				<ul class="style2">
+					<li><a href="{% url 'memo' %}">Files or Website</a></li>
+					<li><a href="{% url 'todolist' %}">To-Do-List</a></li>
+					<li><a href="{% url 'photopage' %}">Photos</a></li>
+					<li><a href="{% url 'generalforum' %}">General Forum</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>
+
+
 {% endblock %}

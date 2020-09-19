@@ -1,15 +1,29 @@
 {% extends "blog/base2.html" %}
 
 {% block content %}
-    <h1>Sign Up</h1>
-    {% if error %}
-        <h3 style="color:red">{{error}}</h3>
-    {% endif %}
-        <form action="" method="POST">
-        {% csrf_token %}
-            <table>
-            {{ f.as_table }}
-            </table>
-            <input type="submit" value="회원가입">
-        </form>
+<div id="wrapper">
+	<div id="page" class="container">
+		<div id="content">
+			<div class="title">
+				<h2>Sign Up</h2>
+				<span class="byline"></div>
+			<p>
+                {% if error %}
+                    <h3 style="color:red">{{error}}</h3>
+                {% endif %}
+                    <form action="" method="POST">
+                    {% csrf_token %}
+                        <table>
+                        {{ f.as_table }}
+                        </table>
+                        <input type="submit" value="회원가입">
+                    </form>
+             </p>
+			<div id="two-column">
+
+			</div>
+		</div>
+
+	</div>
+</div>
 {% endblock %}

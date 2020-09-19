@@ -1,20 +1,59 @@
 {% extends 'blog/base.html' %}
 
 {% block content %}
-    <div class="post">
-        {% if post.published_date %}
-            <div class="date">
-                {{ post.published_date }}
-            </div>
-        {% else %}
-            <a class="btn btn-default" href="{% url 'post_publish' pk=post.pk %}">Publish</a>
-        {% endif %}
 
-        {% if user.is_authenticated %}
-            <a class="btn btn-default" href="{% url 'post_edit' pk=post.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
-            <a class="btn btn-default" href="{% url 'post_remove' pk=post.pk %}"><span class="glyphicon glyphicon-remove"></span></a>
-        {% endif %}
-        <h1>{{ post.title }}</h1>
-        <p>{{ post.text|linebreaksbr }}</p>
-    </div>
+<div id="wrapper">
+	<div id="page" class="container">
+		<div id="content">
+			<div class="title">
+				<h2>General Forum</h2>
+				<span class="byline"></div>
+			<p>
+
+                 <div class="post">
+                    {% if post.published_date %}
+                        <div class="date">
+                        {{ post.published_date }}
+                        </div>
+                    {% else %}
+                    <a class="btn btn-default" href="{% url 'post_publish' pk=post.pk %}">Publish</a>
+                    {% endif %}
+
+                    {% if user.is_authenticated %}
+                        <a class="btn btn-default" href="{% url 'post_edit' pk=post.pk %}">Edit</a>
+                        <a class="btn btn-default" href="{% url 'post_remove' pk=post.pk %}">Remove</a>
+					 {% endif %}
+                    <h1>{{ post.title }}</h1>
+                    <p>{{ post.text|linebreaksbr }}</p>
+                </div>
+
+            </p>
+			<div id="two-column">
+				<div id="tbox1">
+					<div class="title">
+						<h2></h2>
+					</div>
+            </div>
+				<div id="tbox2">
+					<div class="title">
+						<h2></h2>
+					</div>
+					   </div>
+			</div>
+		</div>
+		<div id="sidebar">
+			<div class="box1">
+				<div class="title">
+					<h2>Site Features</h2>
+				</div>
+				<ul class="style2">
+					<li><a href="{% url 'memo' %}">Files or Website</a></li>
+					<li><a href="{% url 'todolist' %}">To-Do-List</a></li>
+					<li><a href="{% url 'photopage' %}">Photos</a></li>
+					<li><a href="{% url 'generalforum' %}">General Forum</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>
 {% endblock %}

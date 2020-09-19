@@ -1,16 +1,31 @@
 {% extends "blog/base2.html" %}
 
 {% block content %}
-    <h1>Sign In</h1>
-    {% if error %}
-        <p>{{ error }}</p>
-    {% endif %}
-        <form action="" method="POST">
-        {% csrf_token %}
-            <table>
-            {{ f.as_table }}
-            </table>
-            <input type="submit" value="로그인">
-        </form>
-        <a href="{% url 'signup' %}">회원가입</a>
+
+<div id="wrapper">
+	<div id="page" class="container">
+		<div id="content">
+			<div class="title">
+				<h2>Sign In</h2>
+				<span class="byline"></div>
+			<p>
+                {% if error %}
+                    <p>{{ error }}</p>
+                {% endif %}
+                    <form action="" method="POST">
+                    {% csrf_token %}
+                        <table>
+                        {{ f.as_table }}
+                        </table>
+                        <input type="submit" class="button1" value="로그인">
+                    </form>
+                <a href="{% url 'signup' %}" class="button1">회원가입</a>
+            </p>
+			<div id="two-column">
+
+			</div>
+		</div>
+
+	</div>
+</div>
 {% endblock %}

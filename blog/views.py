@@ -1,3 +1,4 @@
+from django.contrib import auth
 from django.shortcuts import render, get_object_or_404, redirect
 from django.utils import timezone
 from django.contrib.auth.decorators import login_required
@@ -44,9 +45,9 @@ def generalforum(request):
     return render(request, 'blog/j2kbgeneralforum.html')
 
 
-''' def post_list(request):
+def post_list(request):
     posts = Post.objects.filter(published_date__lte=timezone.now()).order_by('published_date')
-    return render(request, 'blog/post_list.html', {'posts': posts}) '''
+    return render(request, 'blog/post_list.html', {'posts': posts})
 
 
 def post_detail(request, pk):
@@ -75,7 +76,7 @@ def post_edit(request, pk):
         form = PostForm(request.POST, instance=post)
         if form.is_valid():
             post = form.save(commit=False)
-            post.author = request.user
+            post.author = request.user.get_username()
             post.save()
             return redirect('post_detail', pk=post.pk)
     else:
@@ -99,8 +100,9 @@ def post_publish(request, pk):
 @login_required
 def post_remove(request, pk):
     post = get_object_or_404(Post, pk=pk)
-    post.delete()
-    return redirect('post_list')
+    if post.author == User.objects.get(username = request.user.get_username()):
+        post.delete()
+        return post_list(request)
 
 
 def signup(request):
@@ -138,12 +140,12 @@ def signin(request):
         u = authenticate(username=id, password=pw)
 
         if u:
-            login(request, user=u)
+            auth.login(request, user=u)
             return HttpResponseRedirect(reverse('homepage'))
         else:
             return render(request, 'registration/signin.html', {'f': form, 'error': '아이디나 비밀번호가 일치하지 않습니다.'})
 
 
 def signout(request):
-    logout(request)
+    auth.logout(request)
     return HttpResponseRedirect(reverse('first_page'))

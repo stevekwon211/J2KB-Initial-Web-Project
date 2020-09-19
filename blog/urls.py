@@ -10,7 +10,7 @@ urlpatterns = [
     path('photopage', views.photopage, name='photopage'),
     path('memo', views.memo, name='memo'),
     path('todolist', views.todolist, name='todolist'),
-    path('generalforum', views.generalforum, name='generalforum'),
+    path('generalforum', views.post_list, name='generalforum'),
 
     path('post/<int:pk>/', views.post_detail, name='post_detail'),
     path('post/new/', views.post_new, name='post_new'),
